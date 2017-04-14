@@ -1,0 +1,17 @@
+package org.draft.Dev_Env
+
+class Field[T]( var value: T )
+
+class Foo {
+  val x = new Field(0)
+  val y = new Field(0)
+}
+
+class Bar {
+  def changeFooField( field: Field[Int] ) {
+    field.value = 1
+  } 
+}
+
+val f = new Foo(new Bar).changeFooField( f.x )
+println( f.x.value + " / " + f.y.value ) 
